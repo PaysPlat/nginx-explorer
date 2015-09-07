@@ -227,6 +227,7 @@ IconMap = {
   'xz': 'application-x-lzma-compressed-tar',
   'zip': 'application-zip',
   'zsh': 'application-x-executable-script',
+  'opml': 'text-xml',
 }
 
 function iconFor(path, isDir) {
