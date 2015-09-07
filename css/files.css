@@ -1,0 +1,64 @@
+.background {
+  background-color: #0b5200;
+  background-image: url("/bright-squares.png");
+  color: white;
+}
+
+table { color: black; background-color: rgba(255, 255, 255, 0.9); }
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(246, 246, 246, 0.9);
+}
+
+#indexof {
+    text-align: center;
+}
+
+.fileicon {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.filelink {
+  display: block;
+  padding: 8px;
+}
+
+.posabsolute { position: absolute; }
+
+a, a:visited {
+  color: #2281d0;
+}
+
+#footer {
+  text-align: center;
+  font-size: small;
+  padding-bottom: 2em;
+}
+
+#footer a, .posabsolute a {
+  color: white;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+td {
+  transition: background 300ms ease;
+}
+
+tr:hover td {
+  background-color: rgba(227, 227, 227, 1.0);
+}
+
+tr th:nth-child(2), tr th:nth-child(3) {
+  width: 9%; 
+}
+
+@media handheld {
+  body {
+    color: red;
+  }
+}

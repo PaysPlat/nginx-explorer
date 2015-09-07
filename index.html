@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Index of /</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="css/grid.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/tablesort.css">
+  <link rel="stylesheet" type="text/css" href="css/files.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+  <script src="js/json-to-table.js"></script>
+  <script src="js/tablesort.js"></script>
+  <script src="js/files.js"></script>
+  <script src="js/loadJSON.js"></script>
+  <script src="js/sort.js"></script>
+  <script src="js/demo.js"></script>
+</head>
+
+<body class="background">
+  <div class="grid">
+    <section class="grid__col grid__col--1-of-12 grid__col--push-11-of-12 posabsolute">
+      <a href="javascript:doDemo()">Demo</a> &middot; <a href="sftp://colin@files.evs.sx/var/www/files/downloads/">Upload</a>
+    </section>
+    <section class="grid__col grid__col--11-of-12 grid__col--centered">
+      <h2 id='indexof'>Index of /</h2>
+    </section>
+    <section class="grid__col grid__col--11-of-12 grid__col--centered" id="filesapp" data-api="/downloads/">
+      Loading...
+      <noscript>The file browser is done via Javascript. Sorry!</noscript>
+    </div>
+    <section class="grid__col grid__col--6-of-12 grid__col--centered" id="footer">
+      <p>All files copyright &copy; <a href="https://evaryont.me">Evaryont</a>.
+      All rights reserved, you must ask to use any files listed here. Icons are
+      the <a href="https://github.com/NitruxSA/breeze-icon-theme">Breeze</a> set.</p>
+    </section>
+  </div>
+</body>
+
+</html>
