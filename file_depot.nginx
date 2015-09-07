@@ -1,0 +1,26 @@
+# Configuration for my file dump site. Just a basic auto-index for now. Perhaps
+# something more advanced/prettier via a static site generator?
+
+server {
+  listen 80;
+  server_name files.evs.sx;
+
+  access_log /var/log/nginx/evs.sx.log combined;
+  root /var/www/files/;
+
+  location / {
+    index index.html;
+  }
+
+  location /downloads {
+    autoindex on;
+    autoindex_format json;
+    autoindex_exact_size off;
+  }
+
+  location ~ /\. {
+    access_log off;
+    log_not_found off; 
+    deny all;
+  }
+}
