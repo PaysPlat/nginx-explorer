@@ -7,7 +7,7 @@
 table { color: black; background-color: rgba(255, 255, 255, 0.9); }
 
 tbody tr:nth-child(odd) {
-  background-color: rgba(246, 246, 246, 0.9);
+  background-color: rgba(240, 240, 240, 0.9);
 }
 
 #indexof {
@@ -49,16 +49,23 @@ td {
   transition: background 300ms ease;
 }
 
+td:nth-child(2), td:nth-child(3)
+{
+ text-align: center;
+}
+
 tr:hover td {
   background-color: rgba(227, 227, 227, 1.0);
 }
 
 tr th:nth-child(2) {
  width: 12%; 
+ text-align: center;
 }
 
 tr th:nth-child(3) {
   width: 20%; 
+  text-align: center;
 }
 
 
