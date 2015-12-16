@@ -14,9 +14,7 @@ nginx.conf
 		{
 			try_files /_explorer/index.html /index.html;
 		}
-		
-		#path for json requests
-		location /PREFIX/FOLDER
+			location /PREFIX/FOLDER
 		{
 			alias PathOnYourHardDrive;
 			autoindex on;
