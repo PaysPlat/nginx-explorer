@@ -1,6 +1,6 @@
 .background {
   background-color: #0b5200;
-  background-image: url("/bright-squares.png");
+  background-image: url("/_explorer/bright-squares.png");
   color: white;
 }
 
@@ -53,9 +53,14 @@ tr:hover td {
   background-color: rgba(227, 227, 227, 1.0);
 }
 
-tr th:nth-child(2), tr th:nth-child(3) {
-  width: 9%; 
+tr th:nth-child(2) {
+ width: 12%; 
 }
+
+tr th:nth-child(3) {
+  width: 20%; 
+}
+
 
 @media handheld {
   body {

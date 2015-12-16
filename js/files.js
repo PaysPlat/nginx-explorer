@@ -12,7 +12,7 @@ function createDropDown(that) {
 }
 
 function pageHash() { 
-  return location.hash.slice(1);
+  return location.pathname;
 }
 
 function currentDir() {
@@ -22,7 +22,7 @@ function currentDir() {
 }
 
 function parentDir() {
-  return location.hash.slice(0, location.hash.slice(0, location.hash.lastIndexOf("/")).lastIndexOf("/")+1);
+  return location.pathname.slice(0, location.pathname.slice(0, location.pathname.lastIndexOf("/")).lastIndexOf("/")+1);
 }
 
 function getTargetDiv() {
@@ -44,8 +44,8 @@ function makeFileTable(data) {
   var dataTable = ConvertJsonToTable(data, null, null, null);
 
   var humanDir = currentDir().slice(getTargetDiv().dataset.api.length)
-  document.getElementById("indexof").innerHTML = "Index of /" + humanDir
-  document.title = "Index of /" + humanDir
+  document.getElementById("indexof").innerHTML = "Index of " + humanDir
+  document.title = "Index of " + humanDir
   getTargetDiv().innerHTML = dataTable;
   // Find the "Parent Directory" link then set it's parent tr to no-sort, so
   // tablesort will skip it when sorting the rest of the table. It's the first
@@ -74,6 +74,7 @@ function addSortInfo(div) {
 
 function formatData(baseUrl, data) {
   // Format each row in the returned JSON for humans
+  
   data.forEach(function(e) {
    var name = "";
 
@@ -104,7 +105,7 @@ function formatData(baseUrl, data) {
 }
 
 function directoryfy(base, data) {
-  return '<a class="filelink typedir" href="#' + pageHash() + data + '/">' + iconFor(data, true) + data + '/</a>';
+  return '<a class="filelink typedir" href="'+ data + '/">' + iconFor(data, true) + data + '</a>';
 }
 
 function linkify(base, data) {
@@ -112,7 +113,7 @@ function linkify(base, data) {
 }
 
 function parentDirLink() {
-  return '<a class="filelink typeparent" id="parentdirlink" href="'+parentDir()+'">' + iconFor("", true) + 'Parent Directory</a>';
+  return '<a class="filelink typeparent" id="parentdirlink" href="'+parentDir()+'">' + iconFor("", true) + '.. (Parent)</a>';
 }
 
 function humanFileSize(bytes, si) {
@@ -232,9 +233,16 @@ IconMap = {
 
 function iconFor(path, isDir) {
   console.log("finding icon for", path, isDir)
-  var iconImage = "<img src='icons/{0}.svg' width=24 class='fileicon'>"
+  var iconImage = "<img src='/_explorer/icons/{0}.svg' width=24 class='fileicon'>"
   if (isDir) {
-    return iconImage.format('folder')
+	  if (path =="")
+	  {
+		  return iconImage.format('parent');
+	  }
+	  else
+	  {
+    return iconImage.format('folder');
+	  }
   }
 
   var extension = path.slice(path.lastIndexOf('.')+1)

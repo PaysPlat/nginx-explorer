@@ -2,13 +2,13 @@
 // Years can be 4 digits. Days and Months can be 1 or 2 digits.
 (function(){
   var parseDate = function(date) {
-    date = date.replace(/\-/g, '/');
-    date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
-
-    var tmp = date.split(' ');
-    var hours = tmp[1].split(':');
-    var parts = tmp[0].split('/');
-    return new Date(parts[2], parts[1]-1, parts[0], hours[0], hours[1], hours[2]).getTime() || -1;
+    //date = date.replace(/\-/g, '/');
+   // date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
+return Date.parse(date);
+   // var tmp = date.split(' ');
+    //var hours = tmp[1].split(':');
+    //var parts = tmp[0].split('/');
+    //return new Date(parts[2], parts[1]-1, parts[0], hours[0], hours[1], hours[2]).getTime() || -1;
   };
 
   Tablesort.extend('date', function(item) {
@@ -21,7 +21,7 @@
     a = a.toLowerCase();
     b = b.toLowerCase();
 
-    return parseDate(a) - parseDate(b);
+    return parseDate(b) - parseDate(a);
   });
 }());
 
@@ -46,11 +46,15 @@
   // Ex. filesize2num('123 KiB') -> 125952
   filesize2num = function(filesize) {
     var matches = filesize.match(/^(\d+(\.\d+)?) ?((K|M|G|T|P|E|Z|Y|B$)i?B?)$/i);
-
-    var num    = parseFloat(cleanNumber(matches[1])),
+if (matches)
+{    var num    = parseFloat(cleanNumber(matches[1])),
       suffix = matches[3];
 
     return num * suffix2num(suffix);
+} else
+{
+	return 0;
+}
   },
 
   // Returns suffix multiplier
